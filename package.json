@@ -1,0 +1,43 @@
+{
+  "name": "REPLACE",
+  "version": "0.1.0",
+  "description": "Vojtech Uhlir - REPLACE",
+  "author": "Vojtech Uhlir <uhlirvoj1@gmail.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WojtylaCZ/REPLACE"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node ./src/index.ts",
+    "start:watch": "nodemon --watch 'src/**/*' -e ts,tsx --exec 'ts-node' ./src/index.ts",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "lint": "tslint --fix --project .",
+    "prettier": "prettier --single-quote --write \"./**/*.{js,ts,json,md}\" --ignore-path \"./.gitignore\""
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "tslint --project . --fix",
+      "git add"
+    ],
+    "*.{js,ts,json,md}": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
+  }
+}
